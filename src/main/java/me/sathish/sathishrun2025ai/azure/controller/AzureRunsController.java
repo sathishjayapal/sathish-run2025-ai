@@ -1,7 +1,7 @@
-package me.sathish.sathishrun2025ai.controllers;
+package me.sathish.sathishrun2025ai.azure.controller;
 
 import me.sathish.sathishrun2025ai.data.RunData;
-import me.sathish.sathishrun2025ai.service.SathishChatService;
+import me.sathish.sathishrun2025ai.azure.service.AzureIntegratorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-class RunsAzureController {
-    final SathishChatService chatService;
+class AzureRunsController {
+    final AzureIntegratorService chatService;
 
-    public RunsAzureController(SathishChatService chatService) {
+    public AzureRunsController(AzureIntegratorService chatService) {
         this.chatService = chatService;
     }
 

@@ -18,8 +18,6 @@ public class SathishRun2025AiApplication {
         String[] beanDev=configurableApplicationContext.getBeanDefinitionNames();
         Arrays.stream(beanDev).forEach(logger::info);
     }
-
-
 }
 
 

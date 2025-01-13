@@ -1,10 +1,7 @@
-package me.sathish.sathishrun2025ai.config;
+package me.sathish.sathishrun2025ai.rag.config;
 
 import lombok.Data;
-import org.springframework.ai.azure.openai.AzureOpenAiChatModel;
-import org.springframework.ai.azure.openai.AzureOpenAiEmbeddingModel;
 import org.springframework.ai.document.Document;
-import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.ai.openai.OpenAiEmbeddingModel;
 import org.springframework.ai.reader.TextReader;
 import org.springframework.ai.transformer.splitter.TextSplitter;
@@ -19,8 +16,6 @@ import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.util.List;
-
-import static me.sathish.sathishrun2025ai.service.SathishChatConstants.AZURE_DEPLOYMENT_NAME;
 
 @Configuration
 @Data
