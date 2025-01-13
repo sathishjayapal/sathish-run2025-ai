@@ -1,15 +1,15 @@
-package me.sathish.sathishrun2025ai.controllers;
+package me.sathish.sathishrun2025ai.openai.controllers;
 
-import me.sathish.sathishrun2025ai.service.SathishChatService;
+import me.sathish.sathishrun2025ai.azure.service.AzureIntegratorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-class ChatController {
-    final SathishChatService chatService;
+class OpenAIRunsController {
+    final AzureIntegratorService chatService;
 
-    public ChatController(SathishChatService chatService) {
+    public OpenAIRunsController(AzureIntegratorService chatService) {
         this.chatService = chatService;
     }
 

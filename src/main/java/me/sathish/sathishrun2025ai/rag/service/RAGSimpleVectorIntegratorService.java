@@ -1,7 +1,6 @@
-package me.sathish.sathishrun2025ai.service;
+package me.sathish.sathishrun2025ai.rag.service;
 
-import org.springframework.ai.azure.openai.AzureOpenAiChatModel;
-import org.springframework.ai.azure.openai.AzureOpenAiChatOptions;
+import me.sathish.sathishrun2025ai.all.service.SathishChatConstants;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.model.ChatResponse;
@@ -11,27 +10,20 @@ import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.SimpleVectorStore;
 import org.springframework.context.annotation.Scope;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
 @Scope("prototype")
-public class RunningRagService  implements SathishChatConstants{
-    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(RunningRagService.class);
+public class RAGSimpleVectorIntegratorService implements SathishChatConstants {
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(RAGSimpleVectorIntegratorService.class);
     private final ChatClient chatClient;
-
-    private final OpenAiChatModel chatModel;
-    private final Environment environment;
-    public RunningRagService(OpenAiChatModel azureOpenAiChatModel,
-                             SimpleVectorStore simpleVectorStore, Environment environment) {
-        this.chatModel=azureOpenAiChatModel;
-//        this.chatModel.getDefaultOptions().setDeploymentName(environment.getProperty(AZURE_DEPLOYMENT_NAME));
-        this.environment=environment;
+    public RAGSimpleVectorIntegratorService(OpenAiChatModel chatModel,
+                                            SimpleVectorStore simpleVectorStore) {
         this.chatClient= ChatClient.builder(chatModel).defaultAdvisors
                 (new QuestionAnswerAdvisor(simpleVectorStore, SearchRequest.defaults())).build();
-        logger.info("RunningRagService Initialized");
+        logger.info("AWSIntegratorService Initialized");
     }
 
     public String getRunningRagResponse(String message) {

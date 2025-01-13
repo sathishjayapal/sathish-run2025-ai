@@ -1,6 +1,6 @@
-package me.sathish.sathishrun2025ai.controllers;
+package me.sathish.sathishrun2025ai.aws.controller;
 
-import me.sathish.sathishrun2025ai.service.SathishChatService;
+import me.sathish.sathishrun2025ai.aws.service.AWSIntegratorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.util.Map;
 
 @RestController
-class RunAWSImageController {
-    final SathishChatService chatService;
+class ImageController {
+    final AWSIntegratorService chatService;
 
-    public RunAWSImageController(SathishChatService chatService) {
+    public ImageController(AWSIntegratorService chatService) {
         this.chatService = chatService;
     }
 
